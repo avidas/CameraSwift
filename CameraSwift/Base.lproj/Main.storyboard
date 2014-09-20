@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,10 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lv1-cS-rpG">
-                                <rect key="frame" x="27" y="126" width="267" height="316"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FyJ-9Q-jQq">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FyJ-9Q-jQq">
                                 <rect key="frame" x="74" y="54" width="176" height="30"/>
                                 <state key="normal" title="Capture Image">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -28,17 +26,65 @@
                                     <action selector="captureImage:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Npm-bS-JZ6"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="299" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="X0l-iD-tkO">
+                                <rect key="frame" x="30" y="103" width="255" height="350"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="photocell" rowHeight="299" id="kCt-N1-WWb" customClass="CustomPhotoTableViewCell" customModule="CameraSwift" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="261" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kCt-N1-WWb" id="99z-T7-uj4">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tQQ-Hv-bfD">
+                                                    <rect key="frame" x="0.0" y="0.0" width="261" height="291"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="237" id="2Kk-DA-jC3"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="tQQ-Hv-bfD" firstAttribute="top" secondItem="99z-T7-uj4" secondAttribute="top" id="30W-fb-L8a"/>
+                                                <constraint firstAttribute="trailing" secondItem="tQQ-Hv-bfD" secondAttribute="trailing" id="OVD-gj-Kig"/>
+                                                <constraint firstItem="tQQ-Hv-bfD" firstAttribute="leading" secondItem="99z-T7-uj4" secondAttribute="leading" id="r5f-bg-qaV"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="backgroundImageView" destination="tQQ-Hv-bfD" id="2Aj-Zh-Hdf"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="Bsl-VD-sea"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZu-1Q-zNv">
+                                <rect key="frame" x="30" y="507" width="255" height="41"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="X0l-iD-tkO" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="MBs-ag-Qut"/>
+                            <constraint firstItem="X0l-iD-tkO" firstAttribute="top" secondItem="FyJ-9Q-jQq" secondAttribute="bottom" constant="19" id="O6W-hY-vsW"/>
+                            <constraint firstItem="X0l-iD-tkO" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="14" id="RZh-oC-79G"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FyJ-9Q-jQq" secondAttribute="trailing" constant="54" id="UdU-VL-0iN"/>
+                            <constraint firstItem="FyJ-9Q-jQq" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="58" id="Yxk-vG-Dwh"/>
+                            <constraint firstItem="FyJ-9Q-jQq" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="34" id="exc-2p-YJp"/>
+                            <constraint firstAttribute="bottom" secondItem="X0l-iD-tkO" secondAttribute="bottom" constant="20" symbolic="YES" id="q16-0c-3DF"/>
+                        </constraints>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="captureImage" destination="Lv1-cS-rpG" id="15X-7K-6FQ"/>
+                        <outlet property="tbView" destination="X0l-iD-tkO" id="bFc-Kn-8Ie"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="284" y="137"/>
         </scene>
     </scenes>
 </document>

@@ -8,12 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate, UIAlertViewDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate, UIAlertViewDelegate, UITableViewDataSource {
     
     var imagePicker : UIImagePickerController? = nil
     var actionSheet : UIActionSheet? = nil
-    @IBOutlet var captureImage: UIImageView!
-
+    var imagesList : [UIImage] = []
+    
+    @IBOutlet weak var tbView: UITableView!
+    
     @IBAction func captureImage(sender: AnyObject) {
         actionSheet = UIActionSheet(title: "UploadImage", delegate: self, cancelButtonTitle: "Cancel", destructiveButtonTitle: nil, otherButtonTitles: "Library Image","Camera Image")
         actionSheet?.showInView(self.view)
@@ -46,7 +48,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UIActio
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         var image : UIImage = info[UIImagePickerControllerOriginalImage] as UIImage
-        captureImage.image = image
+        imagesList.append(image)
+        tbView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -56,6 +59,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UIActio
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return imagesList.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let identifier = "photocell"
+        var cell: CustomPhotoTableViewCell = tableView.dequeueReusableCellWithIdentifier(identifier) as CustomPhotoTableViewCell
+        
+        if (imagesList.count > 0) {
+            cell.backgroundImageView.image = imagesList[indexPath.row]
+        }
+        
+        return cell
+        
     }
 
 
