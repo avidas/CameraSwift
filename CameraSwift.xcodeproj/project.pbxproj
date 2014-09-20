@@ -14,6 +14,7 @@
 		0476CE0F19CA509100FAB9CC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0476CE0E19CA509100FAB9CC /* Images.xcassets */; };
 		0476CE1219CA509100FAB9CC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0476CE1019CA509100FAB9CC /* LaunchScreen.xib */; };
 		0476CE1E19CA509100FAB9CC /* CameraSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476CE1D19CA509100FAB9CC /* CameraSwiftTests.swift */; };
+		04C0708919CD19C400C95DA1 /* CustomPhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0708819CD19C400C95DA1 /* CustomPhotoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		0476CE1719CA509100FAB9CC /* CameraSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CameraSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0476CE1C19CA509100FAB9CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0476CE1D19CA509100FAB9CC /* CameraSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraSwiftTests.swift; sourceTree = "<group>"; };
+		04C0708819CD19C400C95DA1 /* CustomPhotoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPhotoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				0476CE1019CA509100FAB9CC /* LaunchScreen.xib */,
 				0476CE0619CA509100FAB9CC /* CameraSwift.xcdatamodeld */,
 				0476CE0219CA509100FAB9CC /* Supporting Files */,
+				04C0708819CD19C400C95DA1 /* CustomPhotoTableViewCell.swift */,
 			);
 			path = CameraSwift;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0476CE0A19CA509100FAB9CC /* ViewController.swift in Sources */,
+				04C0708919CD19C400C95DA1 /* CustomPhotoTableViewCell.swift in Sources */,
 				0476CE0819CA509100FAB9CC /* CameraSwift.xcdatamodeld in Sources */,
 				0476CE0519CA509100FAB9CC /* AppDelegate.swift in Sources */,
 			);
@@ -409,6 +413,7 @@
 				0476CE2319CA509100FAB9CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0476CE2419CA509100FAB9CC /* Build configuration list for PBXNativeTarget "CameraSwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +422,7 @@
 				0476CE2619CA509100FAB9CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
